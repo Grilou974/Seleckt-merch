@@ -142,9 +142,16 @@ function createProductCard(product) {
                 <p class="product-description">${product.description}</p>
                 <div class="product-footer">
                     <span class="product-price">${product.price.toFixed(2)} €</span>
-                    <button class="add-to-cart" onclick="addToCart(${product.id})">
-                        Ajouter 🛒
-                    </button>
+                    <button
+  class="add-to-cart snipcart-add-item"
+  data-item-id="${product.id}"
+  data-item-name="${product.name}"
+  data-item-price="${product.price}"
+  data-item-url="/produits.html"
+  data-item-description="${product.description}">
+  Ajouter 🛒
+</button>
+
                 </div>
             </div>
         </div>
