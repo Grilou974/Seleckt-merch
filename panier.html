@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - Seleckt Shop 🛒</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="fox-emoji">🦊</span>
+                <span class="brand-name">Seleckt<span class="shop-text">Shop</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="index.html#about">À Propos</a></li>
+                <li><a href="panier.html" class="cart-btn active">
+                    🛒 Panier <span class="cart-count">0</span>
+                </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <section class="cart-header">
+        <div class="container">
+            <h1>Mon Panier 🛒</h1>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                <div class="cart-items" id="cart-items">
+                    <!-- Items du panier chargés dynamiquement -->
+                </div>
+                <div class="cart-summary">
+                    <h3>Résumé de la commande</h3>
+                    <div class="summary-line">
+                        <span>Sous-total</span>
+                        <span id="subtotal">0,00 €</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Livraison</span>
+                        <span id="shipping">Gratuite 🎉</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span><strong>Total</strong></span>
+                        <span id="total"><strong>0,00 €</strong></span>
+                    </div>
+                    <button class="btn btn-primary btn-full" id="checkout-btn">
+                        Commander maintenant ✨
+                    </button>
+                    <a href="produits.html" class="btn btn-outline btn-full">
+                        Continuer mes achats
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🦊 Seleckt Shop</h3>
+                    <p>Ta boutique furry préférée</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="produits.html">Produits</a></li>
+                        <li><a href="panier.html">Panier</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📱 TikTok: @Seleckt</p>
+                    <p>✉️ contact@selecktshop.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Seleckt Shop - Tous droits réservés 🦊✨</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+     <!-- Snipcart -->
+<div
+  id="snipcart"
+  data-api-key="Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw">
+</div>
+
+<script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
+
+</body>
+</html>
