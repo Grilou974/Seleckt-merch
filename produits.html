@@ -1,109 +1,111 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produits - Seleckt Shop 🦊</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produits - Seleckt Shop 🦊</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- BOUTON PANIER SNIPCART -->
-<button
-  type="button"
-  class="snipcart-checkout"
-  style="position: fixed; top: 20px; right: 20px; z-index: 999999;">
-  🛒 Panier (<span class="snipcart-items-count"></span>)
-</button>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="fox-emoji">🦊</span>
+        <span class="brand-name">Seleckt<span class="shop-text">Shop</span></span>
+      </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span class="fox-emoji">🦊</span>
-                <span class="brand-name">Seleckt<span class="shop-text">Shop</span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="produits.html" class="active">Produits</a></li>
-                <li><a href="index.html#about">À Propos</a></li>
-                <li><a href="panier.html" class="cart-btn">
-                    🛒 Panier <span class="cart-count">0</span>
-                </a></li>
-            </ul>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="produits.html" class="active">Produits</a></li>
+        <li><a href="index.html#about">À Propos</a></li>
+
+        <!-- ✅ Panier Snipcart -->
+        <li>
+          <button type="button" class="cart-btn snipcart-checkout">
+            🛒 Panier (<span class="snipcart-items-count"></span>)
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Title -->
+  <section class="featured-section" style="padding-top: 30px;">
+    <div class="container">
+      <h1 class="section-title">Tous les produits 🛍️</h1>
+      <p style="margin-top: 8px; opacity: 0.85;">
+        Découvre toute la sélection Seleckt : fun, colorée et 100% vibes 🦊✨
+      </p>
+
+      <!-- Recherche (optionnel, ton script peut l'utiliser si tu l'as prévu) -->
+      <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Rechercher un produit…"
+          style="flex: 1; min-width: 220px; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.12);"
+        />
+
+        <!-- Bouton panier secondaire (optionnel) -->
+        <button type="button" class="btn btn-outline snipcart-checkout">
+          Voir le panier (<span class="snipcart-items-count"></span>)
+        </button>
+      </div>
+
+      <!-- Grille produits (remplie par script.js) -->
+      <div class="products-grid" id="products-grid" style="margin-top: 22px;">
+        <!-- Produits chargés dynamiquement -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🦊 Seleckt Shop</h3>
+          <p>Ta boutique furry préférée</p>
         </div>
-    </nav>
 
-    <!-- Products Header -->
-    <section class="products-header">
-        <div class="container">
-            <h1>Tous nos produits 🌈</h1>
-            <p>Découvre notre sélection de produits fun et colorés !</p>
+        <div class="footer-section">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="produits.html">Produits</a></li>
+
+            <!-- ✅ IMPORTANT : pas de panier.html -->
+            <li>
+              <button type="button" class="snipcart-checkout footer-cart-btn">
+                Panier (<span class="snipcart-items-count"></span>)
+              </button>
+            </li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Filters -->
-    <section class="filters-section">
-        <div class="container">
-            <div class="filters">
-                <button class="filter-btn active" data-category="all">Tous 🌟</button>
-                <button class="filter-btn" data-category="bigoudis">Bigoudis 💅</button>
-                <button class="filter-btn" data-category="bouees">Bouées 🦄</button>
-                <button class="filter-btn" data-category="accessoires">Accessoires ✨</button>
-            </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📱 TikTok: @Seleckt</p>
+          <p>✉️ contact@selecktshop.com</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Products Grid -->
-    <section class="products-section">
-        <div class="container">
-            <div class="products-grid" id="all-products">
-                <!-- Produits chargés dynamiquement -->
-            </div>
-        </div>
-    </section>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Seleckt Shop - Tous droits réservés 🦊✨</p>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🦊 Seleckt Shop</h3>
-                    <p>Ta boutique furry préférée</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens rapides</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="produits.html">Produits</a></li>
-                        <li><a href="panier.html">Panier</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>📱 TikTok: @Seleckt</p>
-                    <p>✉️ contact@selecktshop.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Seleckt Shop - Tous droits réservés 🦊✨</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Ton script -->
+  <script src="script.js"></script>
 
-    <script src="script.js"></script>
-     <!-- Snipcart -->
-<div
-  id="snipcart"
-  data-api-key="Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw">
-</div>
-
-<script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
-
-<a href="#" class="snipcart-checkout">
-  🛒 Panier (<span class="snipcart-items-count"></span>)
-</a>
-
+  <!-- ✅ Snipcart (UNE SEULE FOIS) -->
+  <div id="snipcart" data-api-key="Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw"></div>
+  <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
 </body>
 </html>

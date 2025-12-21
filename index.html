@@ -1,150 +1,156 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleckt Shop - Boutique Furry 🦊</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seleckt Shop - Boutique Furry 🦊</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- BOUTON PANIER SNIPCART -->
-<button
-  type="button"
-  class="snipcart-checkout"
-  style="position: fixed; top: 20px; right: 20px; z-index: 999999;">
-  🛒 Panier (<span class="snipcart-items-count"></span>)
-</button>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="fox-emoji">🦊</span>
+        <span class="brand-name">Seleckt<span class="shop-text">Shop</span></span>
+      </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span class="fox-emoji">🦊</span>
-                <span class="brand-name">Seleckt<span class="shop-text">Shop</span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="produits.html">Produits</a></li>
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="panier.html" class="cart-btn">
-                    🛒 Panier <span class="cart-count">0</span>
-                </a></li>
-            </ul>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="produits.html">Produits</a></li>
+        <li><a href="#about">À Propos</a></li>
+
+        <!-- ✅ Panier Snipcart (remplace totalement le panier maison) -->
+        <li>
+          <button type="button" class="cart-btn snipcart-checkout">
+            🛒 Panier (<span class="snipcart-items-count"></span>)
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Bienvenue chez <span class="highlight">Seleckt</span> 🦊</h1>
+        <p class="hero-subtitle">Ta boutique furry préférée pour des produits fun et colorés !</p>
+        <div class="cta-buttons">
+          <a href="produits.html" class="btn btn-primary">Découvrir la boutique ✨</a>
+          <a href="#featured" class="btn btn-secondary">Produits vedettes 🌟</a>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Bienvenue chez <span class="highlight">Seleckt</span> 🦊</h1>
-                <p class="hero-subtitle">Ta boutique furry préférée pour des produits fun et colorés !</p>
-                <div class="cta-buttons">
-                    <a href="produits.html" class="btn btn-primary">Découvrir la boutique ✨</a>
-                    <a href="#featured" class="btn btn-secondary">Produits vedettes 🌟</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="fox-illustration">
-                    <div class="fox-circle">
-                        <span class="big-fox">🦊</span>
-                    </div>
-                </div>
-            </div>
+      <div class="hero-image">
+        <div class="fox-illustration">
+          <div class="fox-circle">
+            <span class="big-fox">🦊</span>
+          </div>
         </div>
-        <div class="hero-patterns">
-            <span class="pattern-emoji">✨</span>
-            <span class="pattern-emoji">🌈</span>
-            <span class="pattern-emoji">💫</span>
-            <span class="pattern-emoji">🎨</span>
+      </div>
+    </div>
+
+    <div class="hero-patterns">
+      <span class="pattern-emoji">✨</span>
+      <span class="pattern-emoji">🌈</span>
+      <span class="pattern-emoji">💫</span>
+      <span class="pattern-emoji">🎨</span>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section id="featured" class="featured-section">
+    <div class="container">
+      <h2 class="section-title">Produits Vedettes 🌟</h2>
+
+      <!-- ✅ Ton script.js remplit ce conteneur -->
+      <div class="products-grid" id="featured-products"></div>
+
+      <div class="view-all-container">
+        <a href="produits.html" class="btn btn-outline">Voir tous les produits →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>À propos de Seleckt 🦊</h2>
+          <p>Salut ! Je suis <strong>Seleckt</strong>, un renard orange furry créateur de contenu sur TikTok ! 🎬</p>
+          <p>J'ai créé cette boutique pour partager avec toi mes produits préférés : des bigoudis stylés, des bouées licornes magiques et plein d'autres objets fun et colorés ! 🌈</p>
+          <p>Chaque produit est sélectionné avec soin pour apporter de la joie et de la couleur dans ton quotidien. Parce qu'être furry, c'est aussi célébrer la créativité et l'originalité ! ✨</p>
+          <div class="social-links">
+            <a href="#" class="social-btn">
+              <span>📱 TikTok: @Seleckt</span>
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- Featured Products -->
-    <section id="featured" class="featured-section">
-        <div class="container">
-            <h2 class="section-title">Produits Vedettes 🌟</h2>
-            <div class="products-grid" id="featured-products">
-                <!-- Produits chargés dynamiquement -->
+        <div class="about-image">
+          <div class="mascot-box">
+            <div class="mascot">🦊</div>
+            <div class="mascot-accessories">
+              <span>💅</span>
+              <span>🦄</span>
+              <span>✨</span>
             </div>
-            <div class="view-all-container">
-                <a href="produits.html" class="btn btn-outline">Voir tous les produits →</a>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>À propos de Seleckt 🦊</h2>
-                    <p>Salut ! Je suis <strong>Seleckt</strong>, un renard orange furry créateur de contenu sur TikTok ! 🎬</p>
-                    <p>J'ai créé cette boutique pour partager avec toi mes produits préférés : des bigoudis stylés, des bouées licornes magiques et plein d'autres objets fun et colorés ! 🌈</p>
-                    <p>Chaque produit est sélectionné avec soin pour apporter de la joie et de la couleur dans ton quotidien. Parce qu'être furry, c'est aussi célébrer la créativité et l'originalité ! ✨</p>
-                    <div class="social-links">
-                        <a href="#" class="social-btn">
-                            <span>📱 TikTok: @Seleckt</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="mascot-box">
-                        <div class="mascot">🦊</div>
-                        <div class="mascot-accessories">
-                            <span>💅</span>
-                            <span>🦄</span>
-                            <span>✨</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🦊 Seleckt Shop</h3>
+          <p>Ta boutique furry préférée</p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>🦊 Seleckt Shop</h3>
-                    <p>Ta boutique furry préférée</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens rapides</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="produits.html">Produits</a></li>
-                        <li><a href="panier.html">Panier</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>📱 TikTok: @Seleckt</p>
-                    <p>✉️ contact@selecktshop.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Seleckt Shop - Tous droits réservés 🦊✨</p>
-            </div>
+        <div class="footer-section">
+          <h4>Liens rapides</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="produits.html">Produits</a></li>
+
+            <!-- ✅ IMPORTANT : plus de lien vers panier.html -->
+            <li>
+              <button type="button" class="snipcart-checkout footer-cart-btn">
+                Panier (<span class="snipcart-items-count"></span>)
+              </button>
+            </li>
+          </ul>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
-    <!-- Snipcart -->
-<div
-  id="snipcart"
-  data-api-key="Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw">
-</div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>📱 TikTok: @Seleckt</p>
+          <p>✉️ contact@selecktshop.com</p>
+        </div>
+      </div>
 
-<script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
+      <div class="footer-bottom">
+        <p>&copy; 2025 Seleckt Shop - Tous droits réservés 🦊✨</p>
+      </div>
+    </div>
+  </footer>
 
-<a href="#" class="snipcart-checkout">
-  🛒 Panier (<span class="snipcart-items-count"></span>)
-</a>
+  <!-- Ton script -->
+  <script src="script.js"></script>
 
+  <!-- ✅ Snipcart (UNE SEULE FOIS, juste avant </body>) -->
+  <div id="snipcart" data-api-key="Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw"></div>
+  <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
 </body>
 </html>
+
 
