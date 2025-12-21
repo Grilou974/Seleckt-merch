@@ -147,9 +147,70 @@
   <script src="script.js"></script>
 
   <!-- ✅ Snipcart (UNE SEULE FOIS, juste avant </body>) -->
-  <div id="snipcart" data-api-key="Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw"></div>
-  <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
+ <!-- Snipcart (installation officielle) -->
+<div id="snipcart" hidden></div>
+
+<script>
+  window.SnipcartSettings = {
+    publicApiKey: "Y2Q1NDY4ZjEtMWRkYi00NGQzLWIzYjItNjhiMzQ4MmVhNzgzNjM5MDE4Njg1MDU2NTEwMzcw",
+    loadStrategy: "on-user-interaction",
+    version: "3.4.0"
+  };
+
+  (function () {
+    var d = window.SnipcartSettings;
+
+    if (!d) return;
+
+    d.domain = d.domain || "cdn.snipcart.com";
+    d.protocol = d.protocol || "https";
+    d.loadCSS = d.loadCSS !== false;
+
+    var loaded = false;
+    var events = ["focus", "mouseover", "touchmove", "scroll", "keydown"];
+
+    function load() {
+      if (loaded) return;
+      loaded = true;
+
+      var head = document.getElementsByTagName("head")[0];
+
+      // CSS
+      if (d.loadCSS) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = d.protocol + "://" + d.domain + "/themes/v" + d.version + "/default/snipcart.css";
+        head.appendChild(link);
+      }
+
+      // Snipcart container
+      var el = document.getElementById("snipcart");
+      if (!el) {
+        el = document.createElement("div");
+        el.id = "snipcart";
+        el.hidden = true;
+        document.body.appendChild(el);
+      }
+      el.dataset.apiKey = d.publicApiKey;
+
+      // JS
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = d.protocol + "://" + d.domain + "/themes/v" + d.version + "/default/snipcart.js";
+      head.appendChild(script);
+
+      events.forEach(function (e) { document.removeEventListener(e, load); });
+    }
+
+    if (d.loadStrategy === "on-user-interaction") {
+      events.forEach(function (e) { document.addEventListener(e, load, { passive: true }); });
+      setTimeout(load, 2500);
+    } else {
+      load();
+    }
+  })();
+</script>
+
 </body>
 </html>
 
