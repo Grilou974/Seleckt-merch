@@ -408,4 +408,39 @@ document.addEventListener('DOMContentLoaded', () => {
     setupFilters();
     displayCart();
     handleCheckout();
+    initBurgerMenu();
 });
+
+// Menu Burger
+function initBurgerMenu() {
+    const burger = document.querySelector('.burger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links a');
+
+    if (!burger) return;
+
+    // Toggle menu
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Fermer le menu en cliquant sur un lien
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            burger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Fermer le menu en cliquant en dehors
+    document.addEventListener('click', (e) => {
+        if (!burger.contains(e.target) && !navLinks.contains(e.target)) {
+            burger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
