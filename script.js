@@ -260,7 +260,7 @@ function displayFeaturedProducts() {
 
 // Afficher tous les produits (page produits)
 function displayAllProducts() {
-    const container = document.getElementById('all-products');
+    const container = document.getElementById('all-products') || document.getElementById('products-grid');
     if (!container) return;
 
     container.innerHTML = products.map(product => createProductCard(product)).join('');
