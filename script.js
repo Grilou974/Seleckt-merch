@@ -447,7 +447,6 @@ function explodeEmojis() {
 // Ajouter les événements de clic sur les emojis
 function addEmojiClickListeners() {
     const emojis = document.querySelectorAll('.pattern-emoji');
-    console.log('Emojis trouvés:', emojis.length);
     
     emojis.forEach(emoji => {
         emoji.style.cursor = 'pointer';
@@ -455,11 +454,9 @@ function addEmojiClickListeners() {
         
         emoji.addEventListener('click', (e) => {
             e.stopPropagation();
-            console.log('Emoji cliqué:', emoji.id || 'pas d\'ID');
             
             // Si c'est l'emoji arc-en-ciel, révéler le coupon
             if (emoji.id === 'rainbow-secret') {
-                console.log('Arc-en-ciel cliqué!');
                 revealCoupon();
             } else {
                 explodeSingleEmoji(emoji);
@@ -470,13 +467,10 @@ function addEmojiClickListeners() {
 
 // Révéler le coupon secret
 function revealCoupon() {
-    console.log('revealCoupon appelé');
     const modal = document.getElementById('coupon-modal');
-    console.log('Modal trouvé:', modal);
     
     if (modal) {
         modal.classList.add('show');
-        console.log('Modal affiché');
     }
     
     // Effet sonore visuel sur l'arc-en-ciel
