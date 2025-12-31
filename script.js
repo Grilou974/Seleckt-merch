@@ -447,14 +447,19 @@ function explodeEmojis() {
 // Ajouter les événements de clic sur les emojis
 function addEmojiClickListeners() {
     const emojis = document.querySelectorAll('.pattern-emoji');
+    console.log('Emojis trouvés:', emojis.length);
     
     emojis.forEach(emoji => {
         emoji.style.cursor = 'pointer';
         emoji.style.pointerEvents = 'auto';
         
-        emoji.addEventListener('click', () => {
+        emoji.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('Emoji cliqué:', emoji.id || 'pas d\'ID');
+            
             // Si c'est l'emoji arc-en-ciel, révéler le coupon
             if (emoji.id === 'rainbow-secret') {
+                console.log('Arc-en-ciel cliqué!');
                 revealCoupon();
             } else {
                 explodeSingleEmoji(emoji);
@@ -465,15 +470,23 @@ function addEmojiClickListeners() {
 
 // Révéler le coupon secret
 function revealCoupon() {
+    console.log('revealCoupon appelé');
     const modal = document.getElementById('coupon-modal');
-    modal.classList.add('show');
+    console.log('Modal trouvé:', modal);
+    
+    if (modal) {
+        modal.classList.add('show');
+        console.log('Modal affiché');
+    }
     
     // Effet sonore visuel sur l'arc-en-ciel
     const rainbow = document.getElementById('rainbow-secret');
-    rainbow.style.animation = 'none';
-    setTimeout(() => {
-        rainbow.style.animation = '';
-    }, 10);
+    if (rainbow) {
+        rainbow.style.animation = 'none';
+        setTimeout(() => {
+            rainbow.style.animation = '';
+        }, 10);
+    }
 }
 
 // Fermer le modal
