@@ -400,6 +400,28 @@ function handleCheckout() {
     });
 }
 
+// Animation d'explosion des emojis de fond
+function explodeEmojis() {
+    const emojis = document.querySelectorAll('.pattern-emoji');
+    
+    emojis.forEach((emoji, index) => {
+        setTimeout(() => {
+            // Explosion
+            emoji.classList.add('exploding');
+            
+            // Réapparition après l'explosion
+            setTimeout(() => {
+                emoji.classList.remove('exploding');
+                emoji.style.animation = 'reappear 0.8s ease-out, float 4s ease-in-out infinite';
+                emoji.style.animationDelay = `${index * 0.3}s, ${index}s`;
+            }, 800);
+        }, index * 200);
+    });
+    
+    // Répéter l'animation toutes les 8 secondes
+    setTimeout(explodeEmojis, 8000);
+}
+
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
@@ -409,6 +431,9 @@ document.addEventListener('DOMContentLoaded', () => {
     displayCart();
     handleCheckout();
     initBurgerMenu();
+    
+    // Démarrer l'animation des emojis après un court délai
+    setTimeout(explodeEmojis, 2000);
 });
 
 // Menu Burger
