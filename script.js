@@ -400,44 +400,62 @@ function handleCheckout() {
     });
 }
 
-// Animation d'explosion des emojis de fond
+// Fonction pour faire exploser un emoji individuel
+function explodeSingleEmoji(emoji) {
+    // Créer 8 particules qui explosent dans toutes les directions
+    const rect = emoji.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    
+    for (let i = 1; i <= 8; i++) {
+        const particle = document.createElement('span');
+        particle.className = 'emoji-particle';
+        particle.textContent = emoji.textContent;
+        particle.style.left = (rect.left + scrollLeft) + 'px';
+        particle.style.top = (rect.top + scrollTop) + 'px';
+        particle.style.animation = `particle-explode-${i} 0.8s ease-out forwards`;
+        document.body.appendChild(particle);
+        
+        // Supprimer la particule après l'animation
+        setTimeout(() => particle.remove(), 800);
+    }
+    
+    // Faire disparaître l'emoji original
+    emoji.classList.add('exploding');
+    
+    // Réapparition après l'explosion
+    setTimeout(() => {
+        emoji.classList.remove('exploding');
+        emoji.style.animation = 'reappear 0.8s ease-out, float 4s ease-in-out infinite';
+    }, 800);
+}
+
+// Animation d'explosion automatique des emojis de fond
 function explodeEmojis() {
     const emojis = document.querySelectorAll('.pattern-emoji');
     
     emojis.forEach((emoji, index) => {
         setTimeout(() => {
-            // Créer 8 particules qui explosent dans toutes les directions
-            const rect = emoji.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-            
-            for (let i = 1; i <= 8; i++) {
-                const particle = document.createElement('span');
-                particle.className = 'emoji-particle';
-                particle.textContent = emoji.textContent;
-                particle.style.left = (rect.left + scrollLeft) + 'px';
-                particle.style.top = (rect.top + scrollTop) + 'px';
-                particle.style.animation = `particle-explode-${i} 0.8s ease-out forwards`;
-                document.body.appendChild(particle);
-                
-                // Supprimer la particule après l'animation
-                setTimeout(() => particle.remove(), 800);
-            }
-            
-            // Faire disparaître l'emoji original
-            emoji.classList.add('exploding');
-            
-            // Réapparition après l'explosion
-            setTimeout(() => {
-                emoji.classList.remove('exploding');
-                emoji.style.animation = 'reappear 0.8s ease-out, float 4s ease-in-out infinite';
-                emoji.style.animationDelay = `0s, ${index}s`;
-            }, 800);
+            explodeSingleEmoji(emoji);
         }, index * 300);
     });
     
     // Répéter l'animation toutes les 10 secondes
     setTimeout(explodeEmojis, 10000);
+}
+
+// Ajouter les événements de clic sur les emojis
+function addEmojiClickListeners() {
+    const emojis = document.querySelectorAll('.pattern-emoji');
+    
+    emojis.forEach(emoji => {
+        emoji.style.cursor = 'pointer';
+        emoji.style.pointerEvents = 'auto';
+        
+        emoji.addEventListener('click', () => {
+            explodeSingleEmoji(emoji);
+        });
+    });
 }
 
 // Initialisation au chargement de la page
@@ -449,6 +467,9 @@ document.addEventListener('DOMContentLoaded', () => {
     displayCart();
     handleCheckout();
     initBurgerMenu();
+    
+    // Ajouter les événements de clic sur les emojis
+    addEmojiClickListeners();
     
     // Démarrer l'animation des emojis après un court délai
     setTimeout(explodeEmojis, 2000);
