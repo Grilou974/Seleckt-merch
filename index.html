@@ -63,7 +63,7 @@
 
     <div class="hero-patterns">
       <span class="pattern-emoji">✨</span>
-      <span class="pattern-emoji">🌈</span>
+      <span class="pattern-emoji" id="rainbow-secret">🌈</span>
       <span class="pattern-emoji">💫</span>
       <span class="pattern-emoji">🎨</span>
     </div>
@@ -218,6 +218,20 @@
     }
   })();
 </script>
+
+  <!-- Modal Coupon Secret -->
+  <div id="coupon-modal" class="coupon-modal">
+    <div class="coupon-modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="coupon-celebration">🎉✨🌈✨🎉</div>
+      <h2>Félicitations ! 🦊</h2>
+      <p>Tu as trouvé le code secret !</p>
+      <div class="coupon-code">FURRY2025</div>
+      <p class="coupon-discount">-15% sur toute la boutique !</p>
+      <p class="coupon-instructions">Utilise ce code à la caisse pour profiter de ta réduction 💝</p>
+      <button class="btn btn-primary" onclick="closeCouponModal()">Merci ! 🎊</button>
+    </div>
+  </div>
 
 </body>
 </html>

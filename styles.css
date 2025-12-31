@@ -420,6 +420,139 @@ body {
     }
 }
 
+/* Modal Coupon Secret */
+.coupon-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.coupon-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon-modal-content {
+    background: linear-gradient(135deg, var(--orange-primary), var(--purple), var(--pink));
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: bounceIn 0.5s ease;
+    color: var(--white);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3) rotate(-10deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg) scale(1.2);
+}
+
+.coupon-celebration {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.coupon-modal-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.coupon-modal-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.coupon-code {
+    background: var(--white);
+    color: var(--orange-primary);
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    user-select: all;
+}
+
+.coupon-code:hover {
+    transform: scale(1.05);
+}
+
+.coupon-discount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.coupon-instructions {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.coupon-modal-content .btn {
+    margin-top: 1rem;
+    border: 2px solid var(--white);
+}
+
+#rainbow-secret {
+    transition: all 0.3s ease;
+}
+
+#rainbow-secret:hover {
+    transform: scale(1.3) rotate(10deg);
+    filter: brightness(1.5);
+}
+
 .pattern-emoji:nth-child(1) {
     top: 10%;
     left: 10%;

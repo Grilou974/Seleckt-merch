@@ -453,9 +453,43 @@ function addEmojiClickListeners() {
         emoji.style.pointerEvents = 'auto';
         
         emoji.addEventListener('click', () => {
-            explodeSingleEmoji(emoji);
+            // Si c'est l'emoji arc-en-ciel, révéler le coupon
+            if (emoji.id === 'rainbow-secret') {
+                revealCoupon();
+            } else {
+                explodeSingleEmoji(emoji);
+            }
         });
     });
+}
+
+// Révéler le coupon secret
+function revealCoupon() {
+    const modal = document.getElementById('coupon-modal');
+    modal.classList.add('show');
+    
+    // Effet sonore visuel sur l'arc-en-ciel
+    const rainbow = document.getElementById('rainbow-secret');
+    rainbow.style.animation = 'none';
+    setTimeout(() => {
+        rainbow.style.animation = '';
+    }, 10);
+}
+
+// Fermer le modal
+function closeCouponModal() {
+    const modal = document.getElementById('coupon-modal');
+    modal.classList.remove('show');
+}
+
+// Fermer le modal en cliquant sur la croix ou en dehors
+window.onclick = function(event) {
+    const modal = document.getElementById('coupon-modal');
+    const closeBtn = document.querySelector('.close-modal');
+    
+    if (event.target === modal || event.target === closeBtn) {
+        closeCouponModal();
+    }
 }
 
 // Initialisation au chargement de la page
