@@ -406,20 +406,38 @@ function explodeEmojis() {
     
     emojis.forEach((emoji, index) => {
         setTimeout(() => {
-            // Explosion
+            // Créer 8 particules qui explosent dans toutes les directions
+            const rect = emoji.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            
+            for (let i = 1; i <= 8; i++) {
+                const particle = document.createElement('span');
+                particle.className = 'emoji-particle';
+                particle.textContent = emoji.textContent;
+                particle.style.left = (rect.left + scrollLeft) + 'px';
+                particle.style.top = (rect.top + scrollTop) + 'px';
+                particle.style.animation = `particle-explode-${i} 0.8s ease-out forwards`;
+                document.body.appendChild(particle);
+                
+                // Supprimer la particule après l'animation
+                setTimeout(() => particle.remove(), 800);
+            }
+            
+            // Faire disparaître l'emoji original
             emoji.classList.add('exploding');
             
             // Réapparition après l'explosion
             setTimeout(() => {
                 emoji.classList.remove('exploding');
                 emoji.style.animation = 'reappear 0.8s ease-out, float 4s ease-in-out infinite';
-                emoji.style.animationDelay = `${index * 0.3}s, ${index}s`;
+                emoji.style.animationDelay = `0s, ${index}s`;
             }, 800);
-        }, index * 200);
+        }, index * 300);
     });
     
-    // Répéter l'animation toutes les 8 secondes
-    setTimeout(explodeEmojis, 8000);
+    // Répéter l'animation toutes les 10 secondes
+    setTimeout(explodeEmojis, 10000);
 }
 
 // Initialisation au chargement de la page

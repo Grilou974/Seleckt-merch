@@ -298,23 +298,106 @@ body {
     font-size: 3rem;
     opacity: 0.3;
     animation: float 4s ease-in-out infinite;
+    transition: all 0.3s ease;
 }
 
 .pattern-emoji.exploding {
-    animation: explode 0.8s ease-out forwards;
+    animation: none;
+    transform: scale(0);
+    opacity: 0;
 }
 
-@keyframes explode {
+.emoji-particle {
+    position: absolute;
+    font-size: 3rem;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes particle-explode-1 {
     0% {
-        transform: scale(1) rotate(0deg);
-        opacity: 0.3;
-    }
-    50% {
-        transform: scale(2) rotate(180deg);
+        transform: translate(0, 0) scale(1) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: scale(0) rotate(360deg);
+        transform: translate(-150px, -150px) scale(0.2) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-2 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(150px, -150px) scale(0.2) rotate(-720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-3 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-150px, 150px) scale(0.2) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-4 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(150px, 150px) scale(0.2) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-5 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, -200px) scale(0.1) rotate(1080deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-6 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(200px, 0) scale(0.1) rotate(-1080deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-7 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(0, 200px) scale(0.1) rotate(540deg);
+        opacity: 0;
+    }
+}
+
+@keyframes particle-explode-8 {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-200px, 0) scale(0.1) rotate(-540deg);
         opacity: 0;
     }
 }
